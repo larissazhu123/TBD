@@ -1,0 +1,48 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <style>
+        /* Container styling for the search bar */
+        .search-container {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 5px;
+            width: 300px; /* Adjust width as needed */
+        }
+
+        /* Input styling */
+        .search-input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 16px;
+            color: #888;
+        }
+
+        .search-input::placeholder {
+            color: #bbb;
+        }
+
+        /* Search icon styling */
+        .search-icon {
+            color: #4CAF50; /* Adjust color as needed */
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Type to search for products or ingredients">
+    <span class="search-icon">&#128269;</span> <!-- This is the Unicode for a magnifying glass icon -->
+</div>
+
+</body>
+</html>
+```
