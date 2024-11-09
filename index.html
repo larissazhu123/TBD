@@ -1,9 +1,23 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <!--Pink background-->
 <body style="background-color:#FFECEC;">
+    <h1>Main Page</h1>
+    <div id="searchbar-container"></div>
+
+    <script>
+        // Fetch searchbar.html content and insert into div
+        fetch('C:\Users\Aditi\Desktop\TBD\frontend\components\SearchBar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('searchbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading searchbar:', error));
+    </script>
 
 <!--search bar + text-->
 <div style="width: 100%; height: 100%; position: relative">
