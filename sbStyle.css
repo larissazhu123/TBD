@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: #ffecec;
+}
+
+form {
+    position: relative;
+    width: 550px; /* Set a fixed width for the form */
+    height: 50px; /* Set the height of the form */
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Vertically center the icon */
+    padding: 10px;
+    background: #f5aacd;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2em;
+}
