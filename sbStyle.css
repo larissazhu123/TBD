@@ -10,7 +10,7 @@ body {
 
 form {
     position: relative;
-    width: 550px; /* Set a fixed width for the form */
+    width: 400px; /* Set a fixed width for the form */
     height: 50px; /* Set the height of the form */
     background: white;
     box-sizing: border-box;
