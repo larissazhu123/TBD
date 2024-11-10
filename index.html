@@ -258,7 +258,14 @@
           .then(response => response.text())
           .then(html => {
             document.getElementById('searchbar-container').innerHTML = html;
-          })
+
+            const searchIcon = document.querySelector('#searchbar-container .fa-search');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function() {
+                    document.querySelector('#searchbar-container form').submit();
+                });
+            }
+        })
           .catch(error => console.error('Error loading searchbar:', error));
       }
     </script>
