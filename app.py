@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 @app.route('/get_products', methods=['GET'])
 def get_products():
-    
     query = request.args.get('query')
     if query:
         return jsonify({"message": f"Search query received: {query}"})
