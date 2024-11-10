@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <style>
+        /* Center the loader on the page */
+
+        body {
+             /* Gradient background */
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the body takes up the entire height of the viewport */
+            flex-direction: column;
+            
+        }
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /*height: 100vh;*/
+            text-align: center;
+        }
+
+        /* Style the progress bar container */
+        .progress-bar {
+            width: 300%;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        /* Style the animated progress bar */
+        .progress {
+            width: 0;
+            height: 20px;
+            background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
+            animation: load 3s ease-in-out forwards;
+        }
+
+        /* Define animation for the progress bar */
+        @keyframes load {
+            from {
+                width: 0;
+                background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
+            }
+            to {
+                width: 100%;
+                background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
+            }
+        }
+
+        .animal {
+            width: 100px; /* Adjust the size of the animal */
+            height: auto;
+            animation: jump 1.5s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes jump {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px); /* Jump height */
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <!-- Jumping animal image -->
+        <img src="downloaded_images\dino.png" alt="Jumping Animal" class="animal">
+        
+        <!-- Progress bar -->
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to temp.html after a 2-second delay
+        setTimeout(function() {
+            window.location.href = "temp.html";
+        }, 3000); // Adjust delay time in milliseconds if needed
+    </script>
+</body>
+</html>
