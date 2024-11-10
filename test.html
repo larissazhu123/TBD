@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-size: 60px;
+            color: rgb(28, 1, 69); /*#f3acac*/
+            font-weight: 400;
+            font-family: 'Spectral'; /* Apply Pacifico font */
+            text-align: center;
+            margin-top: -25px; /* Added margin to push the title down */
+            margin-bottom: 0px;
+        }
+        .invisible{
+            font-size: 0px;
+            color: rgb(28, 1, 69); /*#f3acac*/
+            font-weight: 400;
+            font-family: 'Spectral'; /* Apply Pacifico font */
+            text-align: center;
+            margin-top: 520px; /* Added margin to push the title down */
+            margin-bottom: 0px;
+            margin-left: 850px;
+        }
+        
+
+        body {
+            margin-bottom: 250px;
+            background: #d0f6ff;
+            font-family: Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            position: relative;
+            align-items: center;
+            flex-direction: column;
+            gap: 45px; /* Space between the two main containers */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+        }
+        /* First container with 3 cards */
+.container-1 {
+    justify-content: space-evenly;
+    display: flex;
+    top: 20%;
+    width: 100%; /* Ensure the container spans full width */
+    position: relative;
+    
+    transform: translateY(-50%); /* Adjust the container to center it more accurately */
+}
+
+/* Second container with 2 cards */
+.container-2 {
+    justify-content: space-evenly;
+    display: flex;
+    width: 100%;
+}
+
+/* Card itself */
+.card {
+    width: 275px;
+    height: 350px;
+    perspective: 800px; /* 3D effect */
+    background-color: #7a2323;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 1.2s ease;
+    display: flex;
+    position: relative;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between;
+    transform-style: preserve-3d; /* Make sure both faces are rendered in 3D space */
+}
+
+/* Hover effect for the card: flip it */
+.card:hover {
+    cursor: pointer;
+    transform: rotateY(180deg); /* Flip the card */
+}
+
+/* Front and back faces of the card */
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    backface-visibility: hidden; /* Prevent the opposite side from being visible when flipped */
+}
+
+/* Front side styling */
+.front {
+    background-color: #452020;
+    flex-direction: column;
+}
+
+/* Image on the front side */
+.front img {
+    width: 70%; /* Make the image smaller and responsive */
+    height: auto;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+/* Back side styling */
+.back {
+    background-color: #f8ebc0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transform: rotateY(180deg); /* Initially rotate the back side to hide it */
+}
+
+/* Styling for the text on the back */
+.back h1 {
+    font-size: 24px;
+}
+
+        /* Searchbar styling */
+        #searchbar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        form {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: rgb(96, 192, 230);
+            box-sizing: border-box;
+            border-radius: 25px;
+            border: 4px solid rgb(96, 192, 230);
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 42.5px;
+            line-height: 30px;
+            outline: 0;
+            border: 0;
+            display: none;
+            font-size: 1em;
+            border-radius: 20px;
+            padding: 0 20px;
+        }
+
+        .fa {
+            box-sizing: border-box;
+            padding: 10px;
+            width: 42.5px;
+            height: 42.5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            color: #ed14bb;
+            text-align: center;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        form:hover {
+            width: 300px;
+            cursor: pointer;
+        }
+
+        form:hover input {
+            display: block;
+        }
+
+        form:hover .fa {
+            background: #ed14bb;
+            color: rgb(96, 192, 230);
+        }
+
+        .extra-space{
+            background-color: rgb(242, 212, 212);
+            align-items: center;
+            position:relative;
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            color: rgb(242, 212, 212);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="invisible">i
+        <div id="searchbar-container"></div>
+    </div>
+    
+
+    <div class="title">five similar products</div>
+
+    <!-- First container with 3 cards -->
+    <div class="container container-1">
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="Product 1">
+                <h1>Product 1</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <p>Insert ingredients for Product 1</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="Product 2">
+                <h1>Product 2</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <p>Insert ingredients for Product 2</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="Product 3">
+                <h1>Product 3</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <p>Insert ingredients for Product 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second container with 2 cards -->
+    <div class="container container-2">
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="Product 4">
+                <h1>Product 4</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <p>Insert ingredients for Product 4</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="Product 5">
+                <h1>Product 5</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <p>Insert ingredients for Product 5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="extra-space">hi</div>   
+
+
+    <!-- Script to fetch and insert the search bar -->
+    <script>
+        window.onload = function() {
+  
+          fetch('navBar.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('navbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+  
+          fetch('SearchBar.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('searchbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading searchbar:', error));
+        }
+      </script>
+  
+
+</body>
+</html>
