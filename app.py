@@ -5,9 +5,7 @@ import scraping as s
 
 app = Flask(__name__)
 # model = pickle.load(open('model.pkl', 'rb'))
-@app.route('/loading')
-def loading():
-    return render_template('loading.html')
+
 
 @app.route('/get-products', methods=['GET'])
 def get_products():

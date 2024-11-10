@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <form action="http://127.0.0.1:5000/get-products" method="GET" onsubmit="showLoadingPage(event)">
+    <form action="http://127.0.0.1:5000/get-products" method="GET">
         <input type="search" name="query" placeholder="Enter a URL..." required>
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
@@ -17,20 +17,6 @@
         <input type="search" name = "query" placeholder="Enter a URL...">
         <i class="fa fa-search" role="button"></i>
     </form> -->
-    <script>
-        function showLoadingPage(event) {
-            event.preventDefault();  // Prevent form submission
-            // Redirect to the loading page
-            const query = document.querySelector('input[name="query"]').value;
-            const newUrl = "/get-products?query=" + encodeURIComponent(query);
-            window.location.href = "/loading";
     
-            // Submit the form after a short delay to show loading page
-            setTimeout(function() {
-                event.target.action = newUrl
-                event.target.submit();  // Submit the form after showing loading page
-            }, 1000);  // Adjust delay as needed (1 second in this case)
-        }
-    </script>
 </body>
 </html>
