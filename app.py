@@ -2,10 +2,12 @@ import os
 from flask import Flask, jsonify, render_template, request, send_from_directory
 import pickle
 import numpy as np
+import model
 import scraping as s 
 
+
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+pklFile = pickle.load(open('tryAgain.pkl', 'rb'))
 
 @app.route('/navBar.html')
 def serve_navbar():
@@ -60,9 +62,7 @@ def get_products():
         return "no query provided"
     print("URL received: ", query)
     ingredients_list = s.get_ingredients(query)
-    #print(ingredients_list)
-    arr = [["glossier", ingredients_list], ["glossier", ingredients_list], ["glossier", ingredients_list], ["glossier", ingredients_list], ["glossier", ingredients_list]]
-    print(arr)
+    arr = model.predict(ingredients_list)
     return render_template('test.html', results=arr)  
    
 
