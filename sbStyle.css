@@ -5,7 +5,6 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
-    background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
 }
 
 form {
@@ -41,5 +40,31 @@ input {
     background: #ceecf5;
     color: white;
     border-radius: 50%;
+    font-size: 1.2em;
+}
+
+.search-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: #ceecf5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: #b0d4e5; /* Hover effect */
+}
+
+/* Adjust the icon size */
+.search-btn i {
     font-size: 1.2em;
 }
