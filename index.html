@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Search Bar</title>
+    <!-- Import Pacifico font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
+    <style>
+      /* Body styling */
+
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        justify-content: center; /* Keep the elements from centering vertically */
+        align-items: center; /* Center content horizontally */
+        background: linear-gradient(45deg, rgb(253, 254, 223), rgb(238, 208, 255));
+        font-family: 'Roboto', serif;
+        min-height: 100vh; /* Ensure the body at least fills the viewport */
+        padding-bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto; /* Allow scrolling when content exceeds the viewport */
+      }
+
+      /* Title styling with Pacifico font */
+      .title {
+        font-size: 80px;
+        color: rgb(0, 0, 0); /*#f3acac*/
+        font-weight: 400;
+        font-family: 'Spectral', cursive; /* Apply Pacifico font */
+        text-align: center;
+        margin-top: 1000px; /* Added margin to push the title down */
+        margin-bottom: 10px; /* Space between title and description */
+        letter-spacing:0.5px;
+      }
+
+      /* Description styling */
+      .center-description {
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 30px; /* Add space before the search bar */
+        font-family: 'Spectral', cursive;
+      }
+
+      /* Centered search bar form */
+      #searchbar-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px; /* Adjusted margin to push search bar down slightly */
+        margin-bottom:100px;
+      }
+
+      form {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 4px solid white;
+        padding: 5px;
+        transition: all 0.3s ease;
+      }
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 42.5px;
+        line-height: 30px;
+        outline: 0;
+        border: 0;
+        display: block;
+        font-size: 1em;
+        border-radius: 20px;
+        padding: 0 20px;
+      }
+
+      .fa {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: #DFA1A1;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 0.3s ease;
+      }
+
+      form:hover {
+        width: 400px;
+        cursor: pointer;
+      }
+
+      form:hover input {
+        display: block;
+      }
+
+      form:hover .fa {
+        background: #f5aacd;
+        color: white;
+      }
+
+      /* White section at the bottom of the page */
+      .white-section {
+        width: 100%;
+        background-color: white;
+        padding: 30px 0; /* Adds space below the content */
+        margin-top: 80px; /* Push the white section below the content */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        min-height: 300px; /* Ensure the white section takes up at least this height */
+        border-bottom: 1px solid rgb(170, 170, 170);
+      }
+
+      .white-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 10px; /* Space between title and content */
+        margin-top:30px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      /* White section at the bottom of the page */
+      .second-section {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        padding: 20px; /* Adds space below the content */
+        margin-top: 0px; /* Push the white section below the content */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        min-height: 400px; /* Ensure the white section takes up at least this height */
+        border-bottom: 1px solid rgb(170, 170, 170);
+      }
+
+      .second-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 10px; /* Space between title and content */
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      .last-section {
+        width: 100%;
+        background-color: white;
+        padding: 30px 0; /* Adds space below the content */
+        margin-top: 0px; /* Push the white section below the content */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        min-height: 150px; /* Ensure the white section takes up at least this height */
+      }
+
+
+      .last-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 10px; /* Space between title and content */
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      
+
+      /* Optional: add some extra content to test scrolling */
+      .content {
+        width: 85%;
+        padding: 20px;
+        text-align: center;
+        font-size: 15px;
+        color: black;
+        font-family: 'Spectral', cursive;
+      }
+
+      /* This will ensure the page scrolls if content overflows */
+      .scrollable-content {
+        min-height: 150vh; /* Ensures the page content is tall enough to scroll */
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Title "TBD" with Pacifico font -->
+    <div id="navbar-container"></div>
+
+    <div class="title">for skincare lovers</div>
+
+    <!-- Description text "insert description" -->
+    <div class="center-description">your next obsession is just a search away!</div>
+
+    <!-- This is where the search bar content will be inserted -->
+    <div id="searchbar-container">
+      <form action="#">
+        <input type="text" placeholder="Search...">
+        <i class="fa fa-search"></i>
+      </form>
+    </div>
+
+    <!-- White section at the bottom -->
+    <div class="white-section">
+      <h2 class="white-section-title">our mission</h2>
+      <div class="content">
+        <p>After a long day of school or work, you likely look forward to going home, freshening up, and feeling good. As lovers of skincare ourselves, we know how much your daily skincare routine probably means to you. We want to help you perfect that routine! If you've been loving a product lately or have been feeling like branching out to explore new ones, we're here for you! With Dewy, you can look for products that contain similar ingredients to those that you've been loving or maybe have just heard good things about. Our ML Model explores the ingredients in each product in depth, right down to its molecular composition, and introduces you to other products that are composed similarly. We can't wait to help you expand your horizons!</p>
+      </div>
+    </div>
+
+    
+
+    <div class="second-section">
+        <h2 class="second-section-title">how it works</h2>
+        <div class="content">
+          <div style="margin-bottom: 10px;margin-top: 5px;margin-right:700px;">Enter an ULTA or Indecidier URL of your favorite skincare product:</div>
+          <img align="left" src="downloaded_images/SearchBarExample.png" style="margin-left:70px;margin-top:8px;" width="310" height="70">
+          
+          <img align="center" style="margin-right:356px;margin-top:10px;" src="downloaded_images/pinkarrow_copy.jpg" width="121" height="42">
+
+          <div style="margin-left:750px;margin-bottom:50px;margin-top:-80px;" >Discover 5 other products with similar ingredients</div>
+          <img align="right" src="downloaded_images/skincare_result.jpg" style="margin-right:70px; margin-top:-50px; margin-bottom:50px;" width="310" height="105">
+          <br>
+
+          <br>
+          <div style="margin-top:50px;margin-bottom:-30px;margin-left:370px;">Platforms our software supports:</div>
+          <img align="bottom" style="margin-top:0px;margin-left:375px;" src="downloaded_images/ulta.jpg"  width="120" height="60">
+          <img align="bottom"src="downloaded_images/inci.webp" width="110" length="50" style="margin-top:40px;margin-left: 80px;">
+
+        </div>
+      </div>
+    
+
+    <div class="last-section">
+        <div class="content">
+          <i>"Those who can imagine anything, can create the impossible."</i>
+          <p>Alan Turing</p>
+        </div>
+      </div>
+
+    <!-- Script to fetch and insert the search bar -->
+    <script>
+      window.onload = function() {
+
+        fetch('navBar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+          })
+          .catch(error => console.error('Error loading navbar:', error));
+
+        fetch('SearchBar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('searchbar-container').innerHTML = html;
+
+            const searchIcon = document.querySelector('#searchbar-container .fa-search');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function() {
+                    document.querySelector('#searchbar-container form').submit();
+                });
+            }
+        })
+          .catch(error => console.error('Error loading searchbar:', error));
+      }
+    </script>
+
+  </body>
+</html>
