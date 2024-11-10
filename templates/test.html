@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -12,13 +14,13 @@
         }
 
         .title {
-            font-size: 55px;
+            font-size: 20px;
             color: rgb(0, 0, 0); /*#f3acac*/
             font-weight: 400;
-            font-family: 'Spectral'; /* Apply Pacifico font */
-            text-align: center;
+            font-family: 'Merienda'; /* Apply Pacifico font */
+            margin-right: 140px;
             margin-top: -50px; /* Added margin to push the title down */
-            margin-bottom: 40px;
+            margin-bottom: 100px;
         }
         .invisible{
             font-size: 1px;
@@ -34,7 +36,7 @@
 
         body {
             margin-bottom: 250px;
-            background: #d0f6ff;
+            background:  rgb(227, 255, 255);
             font-family: Helvetica, sans-serif;
             color: rgb(0, 0, 0);
             display: flex;
@@ -44,6 +46,7 @@
             flex-direction: column;
             gap: 45px; /* Space between the two main containers */
         }
+        
 
         .container {
             display: flex;
@@ -120,7 +123,7 @@
 
         /* Back side styling */
         .back {
-            background-color: #f8ebc0;
+            background-color: #f89cb9 !important;
             color: white;
             display: flex;
             flex-direction: column;
@@ -225,69 +228,52 @@
             </form>
         </div>
 
-        <div class="title">five similar products</div>
+        <div class="title">Great choice! Based on the product you’ve entered, here are 5 similar skincare products we think you’ll love!</div>
 
 
 
     <!-- First container with 3 cards -->
     <div class="container container-1">
+        {% for product in results[:3] %}
         <div class="card">
             <div class="front">
-                <img src="https://via.placeholder.com/150" alt="Product 1">
-                <h1>Product 1</h1>
+                <img src="https://via.placeholder.com/150" alt="{{ product[0] }}">
+                <h1>{{ product[0] }}</h1>
             </div>
             <div class="back">
                 <h1>Ingredients</h1>
-                <p>Insert ingredients for Product 1</p>
+                <ul>
+                    {% for ingredient in product[1] %}
+                        {% if loop.index <= 5 %}
+                            <li>{{ ingredient }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-
-        <div class="card">
-            <div class="front">
-                <img src="https://via.placeholder.com/150" alt="Product 2">
-                <h1>Product 2</h1>
-            </div>
-            <div class="back">
-                <h1>Ingredients</h1>
-                <p>Insert ingredients for Product 2</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="front">
-                <img src="https://via.placeholder.com/150" alt="Product 3">
-                <h1>Product 3</h1>
-            </div>
-            <div class="back">
-                <h1>Ingredients</h1>
-                <p>Insert ingredients for Product 3</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <!-- Second container with 2 cards -->
     <div class="container container-2">
+        {% for product in results[3:5] %}
         <div class="card">
             <div class="front">
-                <img src="https://via.placeholder.com/150" alt="Product 4">
-                <h1>Product 4</h1>
+                <img src="https://via.placeholder.com/150" alt="{{ product[0] }}">
+                <h1>{{ product[0] }}</h1>
             </div>
             <div class="back">
                 <h1>Ingredients</h1>
-                <p>Insert ingredients for Product 4</p>
+                <ul>
+                    {% for ingredient in product[1] %}
+                        {% if loop.index <= 5 %}
+                            <li>{{ ingredient }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-
-        <div class="card">
-            <div class="front">
-                <img src="https://via.placeholder.com/150" alt="Product 5">
-                <h1>Product 5</h1>
-            </div>
-            <div class="back">
-                <h1>Ingredients</h1>
-                <p>Insert ingredients for Product 5</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <div class="extra-space">hi</div>   
@@ -317,3 +303,4 @@
 
 </body>
 </html>
+	
