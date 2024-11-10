@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options
 
 def get_ingredients(url):
     # Set up WebDriver (e.g., using Chrome)
+    print(f"Load URL in Scraping: {url}")
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run Chrome in headless mode
     chrome_options.add_argument("--disable-gpu")  # Disable GPU for better performance
@@ -85,7 +86,7 @@ def get_ingredients(url):
             # Extract text for each ingredient
             ingredients_list = [link.text for link in ingredient_links]
             
-            print("Ingredients List:", ingredients_list)
+            #print("Ingredients List:", ingredients_list)
             return ingredients_list
         except Exception as e:
             print("Error extracting ingredients from Incidecoder:", e)
