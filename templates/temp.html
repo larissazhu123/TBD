@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
+    <title>Ingredients List</title>
 </head>
 <body>
-    <h1>Page 2</h1>
+    <h1>Ingredients List</h1>
     <p>You have arrived at the results page.</p>
+    <ul>
+        {% for ingredient in results %}
+            <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
