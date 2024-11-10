@@ -5,7 +5,7 @@ import numpy as np
 import scraping as s 
 
 app = Flask(__name__)
-# model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/navBar.html')
 def serve_navbar():
@@ -22,6 +22,32 @@ def serve_sbStyle():
 @app.route('/downloaded_images/logo2.png')
 def serve_image():
     return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'logo2.png')
+
+@app.route('/downloaded_images/dino.png')
+def dino_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'dino.png')
+
+@app.route('/downloaded_images/inci.webp')
+def inci_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'inci.webp')
+
+@app.route('/downloaded_images/pinkarrow_copy.jpg')
+def pinkarrow_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'pinkarrow_copy.jpg')
+
+@app.route('/downloaded_images/SearchBarExample.png')
+def sbexample_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'SearchBarExample.png')
+
+@app.route('/downloaded_images/skincare_result.jpg')
+def skresult_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'skincare_result.jpg')
+
+
+@app.route('/downloaded_images/ulta.jpg')
+def ulta_image():
+    return send_from_directory(os.path.join(app.root_path, 'downloaded_images'), 'ulta.jpg')
+
 
 @app.route('/index.html')
 def index_html():

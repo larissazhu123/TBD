@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,11 +15,11 @@
 
         .title {
             font-size: 20px;
-            color: rgb(0, 0, 0); /*#f3acac*/
-            font-weight: 400;
-            font-family: 'Merienda'; /* Apply Pacifico font */
+            font-family: 'Spectral', cursive;
+            color: rgb(0, 0, 0); 
+            font-weight: 400; 
             margin-right: 140px;
-            margin-top: -50px; /* Added margin to push the title down */
+            margin-top: -50px; 
             margin-bottom: 100px;
         }
         .invisible{
@@ -36,7 +36,7 @@
 
         body {
             margin-bottom: 250px;
-            background:  rgb(227, 255, 255);
+            background: rgb(241, 236, 236);
             font-family: Helvetica, sans-serif;
             color: rgb(0, 0, 0);
             display: flex;
@@ -44,9 +44,27 @@
             position: relative;
             align-items: center;
             flex-direction: column;
-            gap: 45px; /* Space between the two main containers */
+            gap: 45px; 
+            overflow-x: hidden;
+            min-height:100%
+            overflow-y: hidden;
         }
         
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('downloaded_images/dino.png');
+            background-repeat: repeat;
+            background-size: 5%;  /* Scale the image to 50% of its original size */
+            background-position: top left;
+            background-attachment:fixed;
+            opacity: 0.1;  /* Adjust opacity here (0 is fully transparent, 1 is fully opaque) */
+            z-index: -1;  /* Place the image behind other content */
+        }
 
         .container {
             display: flex;
@@ -56,28 +74,31 @@
         }
         /* First container with 3 cards */
         .container-1 {
-            justify-content: space-evenly;
+            justify-content: flex-start; 
             display: flex;
+            margin-left: 300px;
             top: 20%;
             width: 100%; /* Ensure the container spans full width */
             position: relative;
-            
+            gap: 110px;
             transform: translateY(-50%); /* Adjust the container to center it more accurately */
         }
 
         /* Second container with 2 cards */
         .container-2 {
-            justify-content: space-evenly;
+            justify-content: flex-start;
             display: flex;
+            margin-left: 300px;
             width: 100%;
+            gap:110px;
         }
 
         /* Card itself */
         .card {
-            width: 275px;
-            height: 350px;
+            width: 315px;
+            height: 315px;
             perspective: 800px; /* 3D effect */
-            background-color: #7a2323;
+            background-color: rgb(255,255,255);
             border-radius: 1rem;
             box-shadow: 0 0 10px #DFA1A1;
             transition: transform 1.2s ease;
@@ -105,13 +126,15 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            backface-visibility: hidden; /* Prevent the opposite side from being visible when flipped */
+            backface-visibility: hidden; 
         }
 
         /* Front side styling */
         .front {
-            background-color: #fffec9;
+            background-color: rgb(255, 255, 255);
             flex-direction: column;
+            font-family: 'Spectral', serif;
+            font-size: 15px;
         }
 
         /* Image on the front side */
@@ -123,7 +146,7 @@
 
         /* Back side styling */
         .back {
-            background-color: #f89cb9 !important;
+            background-color: rgb(255,255,255);
             color: white;
             display: flex;
             flex-direction: column;
@@ -133,16 +156,26 @@
         /* Styling for the text on the back */
         .back h1 {
             font-size: 24px;
+            font-family: 'Spectral';
+            color:rgb(0,0,0)
         }
 
-        /* Centered search bar form */
+        .back ul li {
+            margin-top:25px;
+            margin-bottom:5px;
+            color: rgb(0,0,0); /* Change text color for the list items */
+            text-align:left;
+            margin-left:20px;
+            font-family: 'Spectral, serif';
+        }
+        
         #searchbar-container {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5px; /* Adjusted margin to push search bar down slightly */
+        justify-content: flex-end;
+        margin-top: 5px; 
         margin-bottom:100px;
-        margin-left:850px;
+        position: relative;
+        z-index:10;
         }
 
         form {
@@ -155,36 +188,36 @@
         border: 4px solid white;
         padding: 5px;
         transition: all 0.3s ease;
+        overflow:hidden;
+        
         }
 
         input {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 42.5px;
-        line-height: 30px;
-        outline: 0;
-        border: 0;
-        display: none;
-        font-size: 1em;
-        border-radius: 20px;
-        padding: 0 20px;
+            position: relative;
+            width: calc(100% - 40px); /* Make input fill the available space, accounting for icon */
+            height: 42.5px;
+            line-height: 30px;
+            outline: 0;
+            border: 0;
+            font-size: 1em;
+            border-radius: 20px;
+            padding: 0 20px;
+            display: block;
         }
 
         .fa {
-        box-sizing: border-box;
-        padding: 10px;
-        width: 42.5px;
-        height: 42.5px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        border-radius: 50%;
-        color: #DFA1A1;
-        text-align: center;
-        font-size: 1.2em;
-        transition: all 0.3s ease;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 42.5px;
+            height: 42.5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            color: #DFA1A1;
+            text-align: center;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
         }
 
         form:hover {
@@ -227,10 +260,10 @@
                 </button>
             </form>
         </div>
-
+        
         <div class="title">Great choice! Based on the product you’ve entered, here are 5 similar skincare products we think you’ll love!</div>
-
-
+        
+        
 
     <!-- First container with 3 cards -->
     <div class="container container-1">
