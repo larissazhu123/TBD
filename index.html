@@ -8,40 +8,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
     <style>
       /* Body styling */
+
       body {
         margin: 0;
         display: flex;
         flex-direction: column; /* Stack elements vertically */
-        justify-content: flex-start; /* Keep the elements from centering vertically */
+        justify-content: center; /* Keep the elements from centering vertically */
         align-items: center; /* Center content horizontally */
-        background-color: #FFECEC; /* Light pink background color */
+        background-color: rgb(247, 248, 239); /* Light pink background color */
         font-family: 'Roboto', serif;
         min-height: 100vh; /* Ensure the body at least fills the viewport */
         padding-bottom: 0;
+        overflow-x: hidden;
         overflow-y: auto; /* Allow scrolling when content exceeds the viewport */
       }
 
       /* Title styling with Pacifico font */
       .title {
         font-size: 80px;
-        color: #DFA1A1;
+        color: rgb(255, 255, 255); /*#f3acac*/
         font-weight: 400;
-        font-family: 'Lobster', cursive; /* Apply Pacifico font */
+        font-family: 'Spectral', cursive; /* Apply Pacifico font */
         text-align: center;
-        margin-top: 320px; /* Added margin to push the title down */
+        margin-top: 1000px; /* Added margin to push the title down */
         margin-bottom: 10px; /* Space between title and description */
       }
 
       /* Description styling */
       .center-description {
-        font-size: 22px;
-        color: black;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
         font-weight: 400;
         text-align: center;
         margin-bottom: 30px; /* Add space before the search bar */
-        font-family: 'Indie Flower', cursive;
+        font-family: 'Spectral', cursive;
       }
 
       /* Centered search bar form */
@@ -50,6 +58,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 5px; /* Adjusted margin to push search bar down slightly */
+        margin-bottom:100px;
       }
 
       form {
@@ -88,7 +97,7 @@
         top: 0;
         right: 0;
         border-radius: 50%;
-        color: #ed14bb;
+        color: #DFA1A1;
         text-align: center;
         font-size: 1.2em;
         transition: all 0.3s ease;
@@ -113,12 +122,67 @@
         width: 100%;
         background-color: white;
         padding: 30px 0; /* Adds space below the content */
-        margin-top: 200px; /* Push the white section below the content */
+        margin-top: 80px; /* Push the white section below the content */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        min-height: 300px; /* Ensure the white section takes up at least this height */
+        border-bottom: 1px solid rgb(170, 170, 170);
+      }
+
+      .white-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 20px; /* Space between title and content */
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      /* White section at the bottom of the page */
+      .second-section {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        padding: 30px; /* Adds space below the content */
+        margin-top: 0px; /* Push the white section below the content */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        min-height: 200px; /* Ensure the white section takes up at least this height */
+        border-bottom: 1px solid rgb(170, 170, 170);
+      }
+
+      .second-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 30px; /* Space between title and content */
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      .last-section {
+        width: 100%;
+        background-color: white;
+        padding: 30px 0; /* Adds space below the content */
+        margin-top: 0px; /* Push the white section below the content */
         display: flex;
         flex-direction: column;
         align-items: center; /* Center content horizontally */
         min-height: 200px; /* Ensure the white section takes up at least this height */
       }
+
+
+      .last-section-title {
+        font-family: 'Spectral', cursive;
+        font-size: 30px;
+        color: #DFA1A1;
+        margin-bottom: 20px; /* Space between title and content */
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      
 
       /* Optional: add some extra content to test scrolling */
       .content {
@@ -138,10 +202,12 @@
   <body>
 
     <!-- Title "TBD" with Pacifico font -->
+    <div id="navbar-container"></div>
+
     <div class="title">skincare website</div>
 
     <!-- Description text "insert description" -->
-    <div class="center-description">Your next obsession is just a search away!!</div>
+    <div class="center-description">your next obsession is just a search away!</div>
 
     <!-- This is where the search bar content will be inserted -->
     <div id="searchbar-container">
@@ -153,14 +219,41 @@
 
     <!-- White section at the bottom -->
     <div class="white-section">
+      <h2 class="white-section-title">our mission</h2>
       <div class="content">
         <p>Additional content goes here. Scroll down to see more.</p>
       </div>
     </div>
 
+    
+
+    <div class="second-section">
+        <h2 class="second-section-title">how it works</h2>
+        <div class="content">
+          <p>Additional content goes here. Scroll down to see more.</p>
+        </div>
+      </div>
+    
+    
+
+    
+    <div class="last-section">
+        <div class="content">
+          <p>quote!!</p>
+        </div>
+      </div>
+
     <!-- Script to fetch and insert the search bar -->
     <script>
       window.onload = function() {
+
+        fetch('navBar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+          })
+          .catch(error => console.error('Error loading navbar:', error));
+
         fetch('SearchBar.html')
           .then(response => response.text())
           .then(html => {
