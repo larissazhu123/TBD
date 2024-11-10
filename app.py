@@ -63,7 +63,11 @@ def get_products():
     print("URL received: ", query)
     ingredients_list = s.get_ingredients(query)
     arr = model.predict(ingredients_list)
-    return render_template('test.html', results=arr)  
+    product_name_list = arr['product_name'].tolist()
+    clean_ingreds_list = arr['clean_ingreds'].tolist()
+    fin = [product_name_list, clean_ingreds_list]
+    print(arr)
+    return render_template('test.html', results=fin)  
    
 
 if __name__ == "__main__":

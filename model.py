@@ -118,6 +118,8 @@ dfFR.to_pickle("tryAgain.pkl")
 
 
 testing = pd.read_pickle("tryAgain.pkl")
+print(testing.columns)
+
 
 
 # In[23]:
@@ -175,19 +177,21 @@ def find_similar_products(user_smiles, df, top_n=5):
 
     return top_products
 
-# User input (example SMILES list)
-user_smiles = ["OCC(O)CO", "CCCCCCCCCCCCCCCCO"]
+# # User input (example SMILES list)
+# user_smiles = ["OCC(O)CO", "CCCCCCCCCCCCCCCCO"]
 
-# Find top 5 similar products
-top_similar_products = find_similar_products(user_smiles, testing)
-print(top_similar_products[['product_name', 'clean_ingreds', 'price', 'Similarity Score']])
+# # Find top 5 similar products
+# top_similar_products = find_similar_products(user_smiles, testing)
+# print(top_similar_products[['product_name', 'clean_ingreds', 'price', 'Similarity Score']])
 
 
 # In[24]:
 
 
 def predict(ingreList):
-    testing = pd.read_pickle("tryAgain.pkl")
+    testing = pd.read_pickle("tryAgain2.pkl")
+    print(testing.columns)
+
     # Find top 5 similar products
     b = get_smiles(ingreList)
     top_similar_products = find_similar_products(b, testing)
@@ -199,13 +203,13 @@ def predict(ingreList):
 
 import pandas as pd
 
-# Load the CSV file
-csv_file_path = 'embeddings.csv'  # Replace with your CSV file path
-dfFR = pd.read_csv(csv_file_path)
+# # Load the CSV file
+# csv_file_path = 'embeddings.csv'  # Replace with your CSV file path
+# dfFR = pd.read_csv(csv_file_path)
 
-# Save the DataFrame to a pickle file
-pickle_file_path = 'chemBerta.pkl'  # Specify your desired pickle file path
-dfFR.to_pickle(pickle_file_path)
+# # Save the DataFrame to a pickle file
+# pickle_file_path = 'chemBerta.pkl'  # Specify your desired pickle file path
+# dfFR.to_pickle(pickle_file_path)
 
 
 # In[43]:
@@ -250,18 +254,4 @@ def calculate_top_5_similar_products(user_fingerprint_list, df):
 
 
 # In[48]:
-
-
-user_smiles = ["OCC(O)CO", "CCCCCCCCCCCCCCCCO"]
-# turn into fingerprints
-user_fingerprint_list = []
-for r in user_smiles:
-        mol = Chem.MolFromSmiles(r)
-        try:
-            # Generate Morgan Fingerprints
-            user_fingerprint_list.append(AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048))
-        except:
-            continue
-total_similarity = calculate_top_5_similar_products(user_fingerprint_list, merged_df) # this returns correct normalized similarities
-total_similarity
 

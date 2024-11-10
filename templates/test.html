@@ -46,8 +46,7 @@
             flex-direction: column;
             gap: 45px; 
             overflow-x: hidden;
-            min-height:100%
-            overflow-y: hidden;
+            min-height:100%;
         }
         
         body::after {
@@ -263,20 +262,20 @@
         
         <div class="title">Great choice! Based on the product you’ve entered, here are 5 similar skincare products we think you’ll love!</div>
         
-        
-
+    <!-- First container with 3 cards -->
+    \
     <!-- First container with 3 cards -->
     <div class="container container-1">
-        {% for product in results[:3] %}
+        {% for product_name, clean_ingreds in product_name_list[:3] | zip(clean_ingreds_list[:3]) %}
         <div class="card">
             <div class="front">
-                <img src="https://via.placeholder.com/150" alt="{{ product[0] }}">
-                <h1>{{ product[0] }}</h1>
+                <img src="https://via.placeholder.com/150" alt="{{ product_name }}">
+                <h1>{{ product_name }}</h1>
             </div>
             <div class="back">
                 <h1>Ingredients</h1>
                 <ul>
-                    {% for ingredient in product[1] %}
+                    {% for ingredient in clean_ingreds %}
                         {% if loop.index <= 5 %}
                             <li>{{ ingredient }}</li>
                         {% endif %}
@@ -286,19 +285,20 @@
         </div>
         {% endfor %}
     </div>
+    
 
     <!-- Second container with 2 cards -->
     <div class="container container-2">
-        {% for product in results[3:5] %}
+        {% for product_name, clean_ingreds in product_name_list[3:5] | zip(clean_ingreds_list[3:5]) %}
         <div class="card">
             <div class="front">
-                <img src="https://via.placeholder.com/150" alt="{{ product[0] }}">
-                <h1>{{ product[0] }}</h1>
+                <img src="https://via.placeholder.com/150" alt="{{ product_name }}">
+                <h1>{{ product_name }}</h1>
             </div>
             <div class="back">
                 <h1>Ingredients</h1>
                 <ul>
-                    {% for ingredient in product[1] %}
+                    {% for ingredient in clean_ingreds %}
                         {% if loop.index <= 5 %}
                             <li>{{ ingredient }}</li>
                         {% endif %}
@@ -308,6 +308,28 @@
         </div>
         {% endfor %}
     </div>
+    
+    
+    <!-- <div class="container container-2">
+        {% for product in results[3:5] %}
+        <div class="card">
+            <div class="front">
+                <img src="https://via.placeholder.com/150" alt="{{ product.product_name}}">
+                <h1>{{ product.product_name}}</h1>
+            </div>
+            <div class="back">
+                <h1>Ingredients</h1>
+                <ul>
+                    {% for ingredient in product.clean_ingreds %}
+                        {% if loop.index <= 5 %}
+                            <li>{{ ingredient }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div> -->
 
     <div class="extra-space">hi</div>   
 
