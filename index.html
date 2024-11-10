@@ -23,7 +23,7 @@
         flex-direction: column; /* Stack elements vertically */
         justify-content: center; /* Keep the elements from centering vertically */
         align-items: center; /* Center content horizontally */
-        background-color: rgb(247, 248, 239); /* Light pink background color */
+        background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
         font-family: 'Roboto', serif;
         min-height: 100vh; /* Ensure the body at least fills the viewport */
         padding-bottom: 0;
@@ -258,7 +258,14 @@
           .then(response => response.text())
           .then(html => {
             document.getElementById('searchbar-container').innerHTML = html;
-          })
+
+            const searchIcon = document.querySelector('#searchbar-container .fa-search');
+            if (searchIcon) {
+                searchIcon.addEventListener('click', function() {
+                    document.querySelector('#searchbar-container form').submit();
+                });
+            }
+        })
           .catch(error => console.error('Error loading searchbar:', error));
       }
     </script>
