@@ -3,13 +3,14 @@ const mysql = require('mysql');
 const myapp = express();
 const port = 3306;
 
+// Create a connection object with MySQL database details
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'root',
 });
-    
+
 db.connect((err) => {
 if (err) throw err;
     console.log('Connected to MySQL database');
@@ -21,18 +22,19 @@ app.post('/api/students', (req, res) => {
     const { name, email, dob, gender } = req.body;
     const sql = 'INSERT INTO students (name, email, dob, gender) VALUES (?, ?, ?, ?)';
     db.query(sql, [name, email, dob, gender], (err, result) => {
-    if (err) {
-    console.error(err);
-    res.status(500).send('Error saving data');
-    } else {
-    res.status(201).send('Data saved successfully');
-    }
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error saving data');
+        } else {
+            res.status(201).send('Data saved successfully');
+        }
     });
-    });
-    
-    app.listen(port, () => {
+});
+
+app.listen(port, () => {
     console.log('Server is running on port ${port}');
-    });
+});
+
 // const sqlite3 = require('sqlite3').verbose();
 // const express = require('express');
 // const fs = require('fs');
