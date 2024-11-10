@@ -5,7 +5,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
-    background: #ffecec;
+    background: linear-gradient(45deg, rgb(249, 199, 230), rgb(167, 241, 242));
 }
 
 form {
@@ -38,7 +38,7 @@ input {
     right: 10px;
     transform: translateY(-50%); /* Vertically center the icon */
     padding: 10px;
-    background: #f5aacd;
+    background: #ceecf5;
     color: white;
     border-radius: 50%;
     font-size: 1.2em;

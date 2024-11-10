@@ -1,0 +1,60 @@
+<!-- navbar.html -->
+<div class="navbar">
+    <div class="logo">
+        <img src="downloaded_images\trial.png" alt="Logo" class="logo-img">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="temp.html">About Us</a></li>
+    </ul>
+  </div>
+  
+  <style>
+    /* Navbar Styling */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* Distribute space between items */
+      align-items: center;
+      background-color: white;
+      padding: 10px 20px 10px 20px;
+      width: 100%; /* Ensure navbar stretches across the full width */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000; /* Keep it on top */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+      height: 65px;
+      box-sizing:border-box;
+    }
+  
+    .logo-img {
+        height: 55px;
+        width: auto;
+        max-width: 55px;
+    }
+  
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px; /* Space between the navigation links */
+      margin-left: auto;
+    }
+  
+    .navbar .nav-links li {
+      font-size: 1.1rem;
+    }
+  
+    .navbar .nav-links li a {
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s ease;
+      font-family: 'Playfair Display', serif;
+    }
+  
+    .navbar .nav-links li a:hover {
+      color: #ed14bb;
+    }
+    
+  </style>
+  
